@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Dashboard</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="./socket.io/socket.io.js"></script>
+    <script>
+    </script>
+	<style type="text/css">
+	div {
+		border: 1px solid black;
+		padding: 10px;
+	}
+	.display{
+		height: 600px;
+		width: 600px;
+		display: inline-block;
+		vertical-align: top;
+	}
+	.detail{
+		height: 600px;
+		width: 400px;
+		display: inline-block;
+	}
+	.add {
+		height: 100px;
+		width: 600px;
+	}
+	input {
+		margin-right: 15px;
+		width: 100px;
+	}
+	a:hover {
+		cursor: pointer;
+	}
+	</style>
+
+
+</head>
+<body>
+	<div class="display">
+		<h3>Hedgehog Dashboard</h3>
+		<table class="table table-hover">
+			<thead>
+				<th>Name</th>
+				<th>Age</th>
+				<th>Coloring</th>
+				<th>Action</th>
+			</thead>
+			<tbody>
+			<% for (var i = 0; i < view_all.length; i++) { %>
+				<tr>
+					<td><%= view_all[i].name %></td>
+					<td><%= view_all[i].age %></td>
+					<td><%= view_all[i].color %></td>
+					<td><a href="/edit/<%= view_all[i].id %>">Edit</a> | <a href="/remove/<%= view_all[i].id %>">Remove</a></td>
+				</tr>
+			<% } %>
+			</tbody>
+				
+		</table>
+	</div>
+	<div class="add">
+		<h5>Add a new hedgehog</h5>
+		<form method="post" action="/add_hedgehog">
+			<label>Name: </label>
+			<input type="text" name="name">
+			<label>Age: </label>
+			<input type="text" name="age">
+			<label>Color: </label>
+			<select name="color">
+				<option></option>
+				<option value="albino">Albino</option>
+				<option value="brown">Brown</option>
+				<option value="champagne">Champagne</option>
+				<option value="charcoal">Charcoal</option>
+				<option value="chocolate">Chocolate</option>
+				<option value="chocolate_chip">Chocolate Chip</option>
+				<option value="cinnamon">Cinnamon</option>
+				<option value="dark grey">Dark Grey</option>
+				<option value="grey">Grey</option>
+				<option value="salt_pepper">Salt & Pepper</option>
+				<option value="silver">Silver</option>
+			</select>
+			<button>add</button>
+		</form>
+	</div>
+</body>
+</html>

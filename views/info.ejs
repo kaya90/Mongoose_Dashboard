@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+	<div class="detail">
+		Hedgehog Information
+		<form method="post" action="/update_hedgehog/<%= view_one.id %>">
+		<p>Name: <input name="name" value="<%= view_one.name %>"></p>
+		<p>Age: <input name="age" value="<%= view_one.age %>"></p>
+		<p>Coloring: <input name="color" value="<%= view_one.color %>"></p>
+		<button>Update</button>
+		</form>
+	</div>
+</body>
+</html>
